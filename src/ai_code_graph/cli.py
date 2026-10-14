@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from collections.abc import Callable
 from dataclasses import replace
@@ -25,6 +26,10 @@ def main(argv: list[str] | None = None) -> int:
     except (ConfigError, indexer.GraphNotFound, LookupError, query.StaleGraph, ReviewError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
+    except BrokenPipeError:
+        # Output piped into `head` and closed early; silence the flush at exit.
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+        return 0
 
 
 def _parser() -> argparse.ArgumentParser:

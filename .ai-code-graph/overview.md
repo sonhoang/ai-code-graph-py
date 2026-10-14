@@ -13,7 +13,7 @@ Each entry is `L<line> <signature>`; public methods are listed under their class
 
 ### ai_code_graph.cli (`src/ai_code_graph/cli.py`)
 Command-line interface: ``ai-code-graph <command>`` (alias ``acg``).
-- L20 `def main(argv: list[str] | None = None) -> int`
+- L21 `def main(argv: list[str] | None = None) -> int`
 - imports: ai_code_graph, ai_code_graph.config, ai_code_graph.indexer, ai_code_graph.mcp_server, ai_code_graph.model, ai_code_graph.overview, ai_code_graph.query, ai_code_graph.review, ai_code_graph.stats
 - imported by: ai_code_graph.__main__, test_cli
 

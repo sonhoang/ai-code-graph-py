@@ -55,7 +55,7 @@
   },
   {
    "path": "src/ai_code_graph/cli.py",
-   "sha256": "3edd522ffd63b1fd6755f6acac033935700b7d808226f5a4375555c4e615e2c1",
+   "sha256": "41e10dc1726e7071c543956e60f2687475b42e660b14c2e1e6971756c0ce0ec3",
    "doc": "Command-line interface: ``ai-code-graph <command>`` (alias ``acg``).",
    "all": null,
    "error": null,
@@ -65,9 +65,9 @@
      "name": "main",
      "qualname": "main",
      "signature": "def main(argv: list[str] | None = None) -> int",
-     "line": 20,
-     "start": 20,
-     "end": 27,
+     "line": 21,
+     "start": 21,
+     "end": 32,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -77,9 +77,9 @@
      "name": "_parser",
      "qualname": "_parser",
      "signature": "def _parser() -> argparse.ArgumentParser",
-     "line": 30,
-     "start": 30,
-     "end": 75,
+     "line": 35,
+     "start": 35,
+     "end": 80,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -89,9 +89,9 @@
      "name": "_create",
      "qualname": "_create",
      "signature": "def _create(config: Config, args: argparse.Namespace) -> int",
-     "line": 78,
-     "start": 78,
-     "end": 81,
+     "line": 83,
+     "start": 83,
+     "end": 86,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -101,9 +101,9 @@
      "name": "_sync",
      "qualname": "_sync",
      "signature": "def _sync(config: Config, args: argparse.Namespace) -> int",
-     "line": 84,
-     "start": 84,
-     "end": 87,
+     "line": 89,
+     "start": 89,
+     "end": 92,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -113,9 +113,9 @@
      "name": "_print_build",
      "qualname": "_print_build",
      "signature": "def _print_build(config: Config, graph: Graph, report: indexer.SyncReport) -> None",
-     "line": 90,
-     "start": 90,
-     "end": 95,
+     "line": 95,
+     "start": 95,
+     "end": 100,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -125,9 +125,9 @@
      "name": "_search",
      "qualname": "_search",
      "signature": "def _search(config: Config, args: argparse.Namespace) -> int",
-     "line": 98,
-     "start": 98,
-     "end": 105,
+     "line": 103,
+     "start": 103,
+     "end": 110,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -137,9 +137,9 @@
      "name": "_extract",
      "qualname": "_extract",
      "signature": "def _extract(config: Config, args: argparse.Namespace) -> int",
-     "line": 108,
-     "start": 108,
-     "end": 112,
+     "line": 113,
+     "start": 113,
+     "end": 117,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -149,18 +149,6 @@
      "name": "_overview",
      "qualname": "_overview",
      "signature": "def _overview(config: Config, args: argparse.Namespace) -> int",
-     "line": 115,
-     "start": 115,
-     "end": 117,
-     "is_async": false,
-     "decorators": [],
-     "doc": null
-    },
-    {
-     "kind": "function",
-     "name": "_imports",
-     "qualname": "_imports",
-     "signature": "def _imports(config: Config, args: argparse.Namespace) -> int",
      "line": 120,
      "start": 120,
      "end": 122,
@@ -170,9 +158,9 @@
     },
     {
      "kind": "function",
-     "name": "_who_imports",
-     "qualname": "_who_imports",
-     "signature": "def _who_imports(config: Config, args: argparse.Namespace) -> int",
+     "name": "_imports",
+     "qualname": "_imports",
+     "signature": "def _imports(config: Config, args: argparse.Namespace) -> int",
      "line": 125,
      "start": 125,
      "end": 127,
@@ -182,12 +170,24 @@
     },
     {
      "kind": "function",
+     "name": "_who_imports",
+     "qualname": "_who_imports",
+     "signature": "def _who_imports(config: Config, args: argparse.Namespace) -> int",
+     "line": 130,
+     "start": 130,
+     "end": 132,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
      "name": "_review",
      "qualname": "_review",
      "signature": "def _review(config: Config, args: argparse.Namespace) -> int",
-     "line": 130,
-     "start": 130,
-     "end": 140,
+     "line": 135,
+     "start": 135,
+     "end": 145,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -197,9 +197,9 @@
      "name": "_stats",
      "qualname": "_stats",
      "signature": "def _stats(config: Config, args: argparse.Namespace) -> int",
-     "line": 143,
-     "start": 143,
-     "end": 153,
+     "line": 148,
+     "start": 148,
+     "end": 158,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -209,9 +209,9 @@
      "name": "_mcp",
      "qualname": "_mcp",
      "signature": "def _mcp(config: Config, args: argparse.Namespace) -> int",
-     "line": 156,
-     "start": 156,
-     "end": 160,
+     "line": 161,
+     "start": 161,
+     "end": 165,
      "is_async": false,
      "decorators": [],
      "doc": null
@@ -228,6 +228,14 @@
     },
     {
      "line": 6,
+     "module": "os",
+     "level": 0,
+     "names": [],
+     "target": "os",
+     "resolved": []
+    },
+    {
+     "line": 7,
      "module": "sys",
      "level": 0,
      "names": [],
@@ -235,7 +243,7 @@
      "resolved": []
     },
     {
-     "line": 7,
+     "line": 8,
      "module": "collections.abc",
      "level": 0,
      "names": [
@@ -245,7 +253,7 @@
      "resolved": []
     },
     {
-     "line": 8,
+     "line": 9,
      "module": "dataclasses",
      "level": 0,
      "names": [
@@ -255,7 +263,7 @@
      "resolved": []
     },
     {
-     "line": 9,
+     "line": 10,
      "module": "pathlib",
      "level": 0,
      "names": [
@@ -265,7 +273,7 @@
      "resolved": []
     },
     {
-     "line": 11,
+     "line": 12,
      "module": "",
      "level": 1,
      "names": [
@@ -281,7 +289,7 @@
      ]
     },
     {
-     "line": 12,
+     "line": 13,
      "module": "config",
      "level": 1,
      "names": [
@@ -294,7 +302,7 @@
      ]
     },
     {
-     "line": 13,
+     "line": 14,
      "module": "model",
      "level": 1,
      "names": [
@@ -306,7 +314,7 @@
      ]
     },
     {
-     "line": 14,
+     "line": 15,
      "module": "overview",
      "level": 1,
      "names": [
@@ -318,7 +326,7 @@
      ]
     },
     {
-     "line": 15,
+     "line": 16,
      "module": "review",
      "level": 1,
      "names": [
@@ -333,7 +341,7 @@
      ]
     },
     {
-     "line": 144,
+     "line": 149,
      "module": "stats",
      "level": 1,
      "names": [
@@ -346,7 +354,7 @@
      ]
     },
     {
-     "line": 157,
+     "line": 162,
      "module": "mcp_server",
      "level": 1,
      "names": [

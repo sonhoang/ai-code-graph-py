@@ -263,11 +263,11 @@ This repository (`uv run acg stats sync extract overview import`), 20 modules,
 
 | query | hits | search tokens | grep -rn tokens | files | full-file tokens | search / files |
 |---|---:|---:|---:|---:|---:|---:|
-| `sync` | 18 | 505 | 1,116 | 4 | 5,040 | 10.0% |
-| `extract` | 8 | 235 | 694 | 5 | 6,818 | 3.5% |
-| `overview` | 9 | 222 | 677 | 5 | 5,106 | 4.4% |
-| `import` | 20 | 494 | 4,476 | 10 | 13,766 | 3.6% |
-| total | | 1,456 | 6,964 | | 30,729 | 4.7% |
+| `sync` | 18 | 505 | 1,116 | 4 | 5,091 | 9.9% |
+| `extract` | 8 | 235 | 694 | 5 | 6,869 | 3.4% |
+| `overview` | 9 | 222 | 677 | 5 | 5,157 | 4.3% |
+| `import` | 20 | 494 | 4,486 | 10 | 13,817 | 3.6% |
+| total | | 1,456 | 6,974 | | 30,935 | 4.7% |
 
 The installed `mcp` 2.3.0 package (`acg --root .venv/lib/python3.12/site-packages
 stats call_tool list_tools session stdio --include 'mcp/**/*.py'`), 124 modules,

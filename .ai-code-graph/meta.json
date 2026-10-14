@@ -1,11 +1,11 @@
 {
  "tool": "ai-code-graph-py",
  "tool_version": "0.1.0",
- "generated_at": "2026-10-14T08:30:26+00:00",
+ "generated_at": "2026-10-14T08:31:39+00:00",
  "files": {
   "src/ai_code_graph/__init__.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
   "src/ai_code_graph/__main__.py": "13a1a5b340cdcfc1902b62be90e508c7c71886000d5bf087e7854aadf09fb35e",
-  "src/ai_code_graph/cli.py": "3edd522ffd63b1fd6755f6acac033935700b7d808226f5a4375555c4e615e2c1",
+  "src/ai_code_graph/cli.py": "41e10dc1726e7071c543956e60f2687475b42e660b14c2e1e6971756c0ce0ec3",
   "src/ai_code_graph/config.py": "dc3a788508c2085f90948ea3255bab21f5c1acd209dd9eee9051c60f91bd752e",
   "src/ai_code_graph/indexer.py": "b250da4840c4b7638fc8000d54f9d19f94d2183d92ceb8115dcd748e0f9d044d",
   "src/ai_code_graph/mcp_server.py": "ae121a6a4984162e21064bd6fca6d57c7630406a7c35a81ac2fc40366bbd0d25",
