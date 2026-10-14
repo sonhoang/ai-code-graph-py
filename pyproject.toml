@@ -1,0 +1,41 @@
+[project]
+name = "ai-code-graph-py"
+version = "0.1.0"
+description = "Persistent symbol/import graph of a Python codebase with compact, signature-only search for AI assistants (CLI + MCP)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=1.13.0",
+    "mcp>=2.3.0",
+]
+
+[project.scripts]
+ai-code-graph = "ai_code_graph.cli:main"
+acg = "ai_code_graph.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_code_graph"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# This repo indexes itself; the fixture package is test data, not part of the code map.
+[tool.ai-code-graph]
+exclude = ["tests/fixtures/**"]
