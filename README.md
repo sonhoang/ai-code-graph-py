@@ -26,7 +26,7 @@ committed so you can see what it produces without running anything.
 Requires Python 3.11+ and [uv](https://docs.astral.sh/uv/).
 
 ```bash
-git clone <this repo> ai-code-graph-py && cd ai-code-graph-py
+git clone https://github.com/sonhoang/ai-code-graph-py.git && cd ai-code-graph-py
 uv sync
 uv run ai-code-graph --root /path/to/your/project create   # full scan
 uv run ai-code-graph --root /path/to/your/project sync     # later: only changed files
