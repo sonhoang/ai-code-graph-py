@@ -1,0 +1,3437 @@
+{
+ "schema": 1,
+ "modules": [
+  {
+   "path": "src/ai_code_graph/__init__.py",
+   "sha256": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [],
+   "imports": [],
+   "name": "ai_code_graph",
+   "imported_by": [
+    "src/ai_code_graph/cli.py",
+    "src/ai_code_graph/indexer.py",
+    "src/ai_code_graph/mcp_server.py",
+    "src/ai_code_graph/overview.py",
+    "tests/conftest.py",
+    "tests/test_cli.py",
+    "tests/test_query.py",
+    "tests/test_sync.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/__main__.py",
+   "sha256": "13a1a5b340cdcfc1902b62be90e508c7c71886000d5bf087e7854aadf09fb35e",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [],
+   "imports": [
+    {
+     "line": 1,
+     "module": "sys",
+     "level": 0,
+     "names": [],
+     "target": "sys",
+     "resolved": []
+    },
+    {
+     "line": 3,
+     "module": "cli",
+     "level": 1,
+     "names": [
+      "main"
+     ],
+     "target": "ai_code_graph.cli",
+     "resolved": [
+      "src/ai_code_graph/cli.py"
+     ]
+    }
+   ],
+   "name": "ai_code_graph.__main__",
+   "imported_by": []
+  },
+  {
+   "path": "src/ai_code_graph/cli.py",
+   "sha256": "3edd522ffd63b1fd6755f6acac033935700b7d808226f5a4375555c4e615e2c1",
+   "doc": "Command-line interface: ``ai-code-graph <command>`` (alias ``acg``).",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "main",
+     "qualname": "main",
+     "signature": "def main(argv: list[str] | None = None) -> int",
+     "line": 20,
+     "start": 20,
+     "end": 27,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_parser",
+     "qualname": "_parser",
+     "signature": "def _parser() -> argparse.ArgumentParser",
+     "line": 30,
+     "start": 30,
+     "end": 75,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_create",
+     "qualname": "_create",
+     "signature": "def _create(config: Config, args: argparse.Namespace) -> int",
+     "line": 78,
+     "start": 78,
+     "end": 81,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_sync",
+     "qualname": "_sync",
+     "signature": "def _sync(config: Config, args: argparse.Namespace) -> int",
+     "line": 84,
+     "start": 84,
+     "end": 87,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_print_build",
+     "qualname": "_print_build",
+     "signature": "def _print_build(config: Config, graph: Graph, report: indexer.SyncReport) -> None",
+     "line": 90,
+     "start": 90,
+     "end": 95,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_search",
+     "qualname": "_search",
+     "signature": "def _search(config: Config, args: argparse.Namespace) -> int",
+     "line": 98,
+     "start": 98,
+     "end": 105,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_extract",
+     "qualname": "_extract",
+     "signature": "def _extract(config: Config, args: argparse.Namespace) -> int",
+     "line": 108,
+     "start": 108,
+     "end": 112,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_overview",
+     "qualname": "_overview",
+     "signature": "def _overview(config: Config, args: argparse.Namespace) -> int",
+     "line": 115,
+     "start": 115,
+     "end": 117,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_imports",
+     "qualname": "_imports",
+     "signature": "def _imports(config: Config, args: argparse.Namespace) -> int",
+     "line": 120,
+     "start": 120,
+     "end": 122,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_who_imports",
+     "qualname": "_who_imports",
+     "signature": "def _who_imports(config: Config, args: argparse.Namespace) -> int",
+     "line": 125,
+     "start": 125,
+     "end": 127,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_review",
+     "qualname": "_review",
+     "signature": "def _review(config: Config, args: argparse.Namespace) -> int",
+     "line": 130,
+     "start": 130,
+     "end": 140,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_stats",
+     "qualname": "_stats",
+     "signature": "def _stats(config: Config, args: argparse.Namespace) -> int",
+     "line": 143,
+     "start": 143,
+     "end": 153,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_mcp",
+     "qualname": "_mcp",
+     "signature": "def _mcp(config: Config, args: argparse.Namespace) -> int",
+     "line": 156,
+     "start": 156,
+     "end": 160,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 5,
+     "module": "argparse",
+     "level": 0,
+     "names": [],
+     "target": "argparse",
+     "resolved": []
+    },
+    {
+     "line": 6,
+     "module": "sys",
+     "level": 0,
+     "names": [],
+     "target": "sys",
+     "resolved": []
+    },
+    {
+     "line": 7,
+     "module": "collections.abc",
+     "level": 0,
+     "names": [
+      "Callable"
+     ],
+     "target": "collections.abc",
+     "resolved": []
+    },
+    {
+     "line": 8,
+     "module": "dataclasses",
+     "level": 0,
+     "names": [
+      "replace"
+     ],
+     "target": "dataclasses",
+     "resolved": []
+    },
+    {
+     "line": 9,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 11,
+     "module": "",
+     "level": 1,
+     "names": [
+      "__version__",
+      "indexer",
+      "query"
+     ],
+     "target": "ai_code_graph",
+     "resolved": [
+      "src/ai_code_graph/__init__.py",
+      "src/ai_code_graph/indexer.py",
+      "src/ai_code_graph/query.py"
+     ]
+    },
+    {
+     "line": 12,
+     "module": "config",
+     "level": 1,
+     "names": [
+      "Config",
+      "ConfigError"
+     ],
+     "target": "ai_code_graph.config",
+     "resolved": [
+      "src/ai_code_graph/config.py"
+     ]
+    },
+    {
+     "line": 13,
+     "module": "model",
+     "level": 1,
+     "names": [
+      "Graph"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    },
+    {
+     "line": 14,
+     "module": "overview",
+     "level": 1,
+     "names": [
+      "render_overview"
+     ],
+     "target": "ai_code_graph.overview",
+     "resolved": [
+      "src/ai_code_graph/overview.py"
+     ]
+    },
+    {
+     "line": 15,
+     "module": "review",
+     "level": 1,
+     "names": [
+      "ReviewError",
+      "build_prompt",
+      "git_diff",
+      "run_review"
+     ],
+     "target": "ai_code_graph.review",
+     "resolved": [
+      "src/ai_code_graph/review.py"
+     ]
+    },
+    {
+     "line": 144,
+     "module": "stats",
+     "level": 1,
+     "names": [
+      "measure",
+      "render_table"
+     ],
+     "target": "ai_code_graph.stats",
+     "resolved": [
+      "src/ai_code_graph/stats.py"
+     ]
+    },
+    {
+     "line": 157,
+     "module": "mcp_server",
+     "level": 1,
+     "names": [
+      "serve"
+     ],
+     "target": "ai_code_graph.mcp_server",
+     "resolved": [
+      "src/ai_code_graph/mcp_server.py"
+     ]
+    }
+   ],
+   "name": "ai_code_graph.cli",
+   "imported_by": [
+    "src/ai_code_graph/__main__.py",
+    "tests/test_cli.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/config.py",
+   "sha256": "dc3a788508c2085f90948ea3255bab21f5c1acd209dd9eee9051c60f91bd752e",
+   "doc": "Project configuration and file discovery.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "class",
+     "name": "ConfigError",
+     "qualname": "ConfigError",
+     "signature": "class ConfigError(ValueError)",
+     "line": 48,
+     "start": 48,
+     "end": 49,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "class",
+     "name": "Config",
+     "qualname": "Config",
+     "signature": "class Config",
+     "line": 53,
+     "start": 52,
+     "end": 80,
+     "is_async": false,
+     "decorators": [
+      "dataclass(frozen=True)"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "output_dir",
+     "qualname": "Config.output_dir",
+     "signature": "def output_dir(self) -> Path",
+     "line": 60,
+     "start": 59,
+     "end": 61,
+     "is_async": false,
+     "decorators": [
+      "property"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "load",
+     "qualname": "Config.load",
+     "signature": "def load(cls, root: Path) -> Config",
+     "line": 64,
+     "start": 63,
+     "end": 80,
+     "is_async": false,
+     "decorators": [
+      "classmethod"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "discover",
+     "qualname": "discover",
+     "signature": "def discover(config: Config) -> list[str]",
+     "line": 83,
+     "start": 83,
+     "end": 103,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Sorted posix paths (relative to the root) of the Python files to index."
+    },
+    {
+     "kind": "function",
+     "name": "matches_any",
+     "qualname": "matches_any",
+     "signature": "def matches_any(path: str, patterns: tuple[str, ...]) -> bool",
+     "line": 106,
+     "start": 106,
+     "end": 107,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_glob_regex",
+     "qualname": "_glob_regex",
+     "signature": "def _glob_regex(pattern: str) -> re.Pattern[str]",
+     "line": 111,
+     "start": 110,
+     "end": 135,
+     "is_async": false,
+     "decorators": [
+      "lru_cache(maxsize=256)"
+     ],
+     "doc": "Translate a path glob: ``**`` spans directories, ``*`` and ``?`` do not."
+    },
+    {
+     "kind": "function",
+     "name": "_patterns",
+     "qualname": "_patterns",
+     "signature": "def _patterns(value: object, key: str) -> tuple[str, ...]",
+     "line": 138,
+     "start": 138,
+     "end": 143,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 15,
+     "module": "os",
+     "level": 0,
+     "names": [],
+     "target": "os",
+     "resolved": []
+    },
+    {
+     "line": 16,
+     "module": "re",
+     "level": 0,
+     "names": [],
+     "target": "re",
+     "resolved": []
+    },
+    {
+     "line": 17,
+     "module": "tomllib",
+     "level": 0,
+     "names": [],
+     "target": "tomllib",
+     "resolved": []
+    },
+    {
+     "line": 18,
+     "module": "dataclasses",
+     "level": 0,
+     "names": [
+      "dataclass"
+     ],
+     "target": "dataclasses",
+     "resolved": []
+    },
+    {
+     "line": 19,
+     "module": "functools",
+     "level": 0,
+     "names": [
+      "lru_cache"
+     ],
+     "target": "functools",
+     "resolved": []
+    },
+    {
+     "line": 20,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    }
+   ],
+   "name": "ai_code_graph.config",
+   "imported_by": [
+    "src/ai_code_graph/cli.py",
+    "src/ai_code_graph/indexer.py",
+    "src/ai_code_graph/mcp_server.py",
+    "src/ai_code_graph/query.py",
+    "tests/conftest.py",
+    "tests/test_mcp.py",
+    "tests/test_query.py",
+    "tests/test_sync.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/indexer.py",
+   "sha256": "b250da4840c4b7638fc8000d54f9d19f94d2183d92ceb8115dcd748e0f9d044d",
+   "doc": "Build the graph (create), keep it current (sync), and read/write ``.ai-code-graph/``.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "class",
+     "name": "GraphNotFound",
+     "qualname": "GraphNotFound",
+     "signature": "class GraphNotFound(FileNotFoundError)",
+     "line": 23,
+     "start": 23,
+     "end": 24,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "class",
+     "name": "SyncReport",
+     "qualname": "SyncReport",
+     "signature": "class SyncReport",
+     "line": 28,
+     "start": 27,
+     "end": 44,
+     "is_async": false,
+     "decorators": [
+      "dataclass"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "has_changes",
+     "qualname": "SyncReport.has_changes",
+     "signature": "def has_changes(self) -> bool",
+     "line": 36,
+     "start": 35,
+     "end": 37,
+     "is_async": false,
+     "decorators": [
+      "property"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "summary",
+     "qualname": "SyncReport.summary",
+     "signature": "def summary(self) -> str",
+     "line": 39,
+     "start": 39,
+     "end": 44,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "build",
+     "qualname": "build",
+     "signature": "def build(config: Config, previous: Graph | None = None) -> tuple[Graph, SyncReport]",
+     "line": 47,
+     "start": 47,
+     "end": 67,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Scan ``config.root``; reparse only files whose sha256 differs from ``previous``."
+    },
+    {
+     "kind": "function",
+     "name": "create",
+     "qualname": "create",
+     "signature": "def create(config: Config) -> tuple[Graph, SyncReport]",
+     "line": 70,
+     "start": 70,
+     "end": 73,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "sync",
+     "qualname": "sync",
+     "signature": "def sync(config: Config) -> tuple[Graph, SyncReport]",
+     "line": 76,
+     "start": 76,
+     "end": 84,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Incremental update. Falls back to a full scan when there is no usable previous graph."
+    },
+    {
+     "kind": "function",
+     "name": "load",
+     "qualname": "load",
+     "signature": "def load(config: Config) -> Graph",
+     "line": 87,
+     "start": 87,
+     "end": 91,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "write",
+     "qualname": "write",
+     "signature": "def write(config: Config, graph: Graph) -> None",
+     "line": 94,
+     "start": 94,
+     "end": 105,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "read_meta",
+     "qualname": "read_meta",
+     "signature": "def read_meta(config: Config) -> dict[str, Any] | None",
+     "line": 108,
+     "start": 108,
+     "end": 112,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_load_previous",
+     "qualname": "_load_previous",
+     "signature": "def _load_previous(config: Config) -> Graph | None",
+     "line": 115,
+     "start": 115,
+     "end": 130,
+     "is_async": false,
+     "decorators": [],
+     "doc": "The cached graph, or None if it is missing, unreadable, or from another tool version."
+    },
+    {
+     "kind": "function",
+     "name": "_dumps",
+     "qualname": "_dumps",
+     "signature": "def _dumps(data: Any) -> str",
+     "line": 133,
+     "start": 133,
+     "end": 134,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_write_atomic",
+     "qualname": "_write_atomic",
+     "signature": "def _write_atomic(path: Path, text: str) -> None",
+     "line": 137,
+     "start": 137,
+     "end": 140,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 5,
+     "module": "json",
+     "level": 0,
+     "names": [],
+     "target": "json",
+     "resolved": []
+    },
+    {
+     "line": 6,
+     "module": "os",
+     "level": 0,
+     "names": [],
+     "target": "os",
+     "resolved": []
+    },
+    {
+     "line": 7,
+     "module": "dataclasses",
+     "level": 0,
+     "names": [
+      "dataclass",
+      "field"
+     ],
+     "target": "dataclasses",
+     "resolved": []
+    },
+    {
+     "line": 8,
+     "module": "datetime",
+     "level": 0,
+     "names": [
+      "UTC",
+      "datetime"
+     ],
+     "target": "datetime",
+     "resolved": []
+    },
+    {
+     "line": 9,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 10,
+     "module": "typing",
+     "level": 0,
+     "names": [
+      "Any"
+     ],
+     "target": "typing",
+     "resolved": []
+    },
+    {
+     "line": 12,
+     "module": "",
+     "level": 1,
+     "names": [
+      "__version__"
+     ],
+     "target": "ai_code_graph",
+     "resolved": [
+      "src/ai_code_graph/__init__.py"
+     ]
+    },
+    {
+     "line": 13,
+     "module": "config",
+     "level": 1,
+     "names": [
+      "Config",
+      "discover"
+     ],
+     "target": "ai_code_graph.config",
+     "resolved": [
+      "src/ai_code_graph/config.py"
+     ]
+    },
+    {
+     "line": 14,
+     "module": "model",
+     "level": 1,
+     "names": [
+      "Graph"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    },
+    {
+     "line": 15,
+     "module": "overview",
+     "level": 1,
+     "names": [
+      "render_overview"
+     ],
+     "target": "ai_code_graph.overview",
+     "resolved": [
+      "src/ai_code_graph/overview.py"
+     ]
+    },
+    {
+     "line": 16,
+     "module": "parser",
+     "level": 1,
+     "names": [
+      "parse_module",
+      "sha256"
+     ],
+     "target": "ai_code_graph.parser",
+     "resolved": [
+      "src/ai_code_graph/parser.py"
+     ]
+    }
+   ],
+   "name": "ai_code_graph.indexer",
+   "imported_by": [
+    "src/ai_code_graph/cli.py",
+    "src/ai_code_graph/mcp_server.py",
+    "tests/conftest.py",
+    "tests/test_query.py",
+    "tests/test_sync.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/mcp_server.py",
+   "sha256": "ae121a6a4984162e21064bd6fca6d57c7630406a7c35a81ac2fc40366bbd0d25",
+   "doc": "MCP server over stdio, exposing four read-only tools.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "build_server",
+     "qualname": "build_server",
+     "signature": "def build_server(root: Path) -> MCPServer",
+     "line": 34,
+     "start": 34,
+     "end": 92,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "serve",
+     "qualname": "serve",
+     "signature": "def serve(root: Path) -> None",
+     "line": 95,
+     "start": 95,
+     "end": 96,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 11,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 13,
+     "module": "mcp.server.mcpserver",
+     "level": 0,
+     "names": [
+      "MCPServer"
+     ],
+     "target": "mcp.server.mcpserver",
+     "resolved": []
+    },
+    {
+     "line": 14,
+     "module": "mcp.server.mcpserver.exceptions",
+     "level": 0,
+     "names": [
+      "ToolError"
+     ],
+     "target": "mcp.server.mcpserver.exceptions",
+     "resolved": []
+    },
+    {
+     "line": 15,
+     "module": "mcp.types",
+     "level": 0,
+     "names": [
+      "ToolAnnotations"
+     ],
+     "target": "mcp.types",
+     "resolved": []
+    },
+    {
+     "line": 17,
+     "module": "",
+     "level": 1,
+     "names": [
+      "__version__",
+      "query"
+     ],
+     "target": "ai_code_graph",
+     "resolved": [
+      "src/ai_code_graph/__init__.py",
+      "src/ai_code_graph/query.py"
+     ]
+    },
+    {
+     "line": 18,
+     "module": "config",
+     "level": 1,
+     "names": [
+      "Config"
+     ],
+     "target": "ai_code_graph.config",
+     "resolved": [
+      "src/ai_code_graph/config.py"
+     ]
+    },
+    {
+     "line": 19,
+     "module": "indexer",
+     "level": 1,
+     "names": [
+      "GraphNotFound",
+      "load"
+     ],
+     "target": "ai_code_graph.indexer",
+     "resolved": [
+      "src/ai_code_graph/indexer.py"
+     ]
+    },
+    {
+     "line": 20,
+     "module": "model",
+     "level": 1,
+     "names": [
+      "Graph"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    },
+    {
+     "line": 21,
+     "module": "overview",
+     "level": 1,
+     "names": [
+      "render_overview"
+     ],
+     "target": "ai_code_graph.overview",
+     "resolved": [
+      "src/ai_code_graph/overview.py"
+     ]
+    }
+   ],
+   "name": "ai_code_graph.mcp_server",
+   "imported_by": [
+    "src/ai_code_graph/cli.py",
+    "tests/test_mcp.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/model.py",
+   "sha256": "a5a72436e24f0f69bc2bd7cd3d121c704b36aba8bd5bab4b31d8b35cb5dc4a2f",
+   "doc": "The graph data model: modules, symbols and imports, plus the global link step.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "class",
+     "name": "Symbol",
+     "qualname": "Symbol",
+     "signature": "class Symbol",
+     "line": 23,
+     "start": 22,
+     "end": 45,
+     "is_async": false,
+     "decorators": [
+      "dataclass(slots=True)"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "is_public",
+     "qualname": "Symbol.is_public",
+     "signature": "def is_public(self) -> bool",
+     "line": 36,
+     "start": 35,
+     "end": 37,
+     "is_async": false,
+     "decorators": [
+      "property"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "head",
+     "qualname": "Symbol.head",
+     "signature": "def head(self) -> str",
+     "line": 39,
+     "start": 39,
+     "end": 45,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Decorators plus signature, clipped to one readable line."
+    },
+    {
+     "kind": "function",
+     "name": "_clip_decorator",
+     "qualname": "_clip_decorator",
+     "signature": "def _clip_decorator(text: str) -> str",
+     "line": 48,
+     "start": 48,
+     "end": 52,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "class",
+     "name": "Import",
+     "qualname": "Import",
+     "signature": "class Import",
+     "line": 56,
+     "start": 55,
+     "end": 70,
+     "is_async": false,
+     "decorators": [
+      "dataclass(slots=True)"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "raw",
+     "qualname": "Import.raw",
+     "signature": "def raw(self) -> str",
+     "line": 66,
+     "start": 65,
+     "end": 70,
+     "is_async": false,
+     "decorators": [
+      "property"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "class",
+     "name": "Module",
+     "qualname": "Module",
+     "signature": "class Module",
+     "line": 74,
+     "start": 73,
+     "end": 100,
+     "is_async": false,
+     "decorators": [
+      "dataclass(slots=True)"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "is_package",
+     "qualname": "Module.is_package",
+     "signature": "def is_package(self) -> bool",
+     "line": 87,
+     "start": 86,
+     "end": 88,
+     "is_async": false,
+     "decorators": [
+      "property"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "package",
+     "qualname": "Module.package",
+     "signature": "def package(self) -> str",
+     "line": 91,
+     "start": 90,
+     "end": 93,
+     "is_async": false,
+     "decorators": [
+      "property"
+     ],
+     "doc": "The package that relative imports in this module are resolved against."
+    },
+    {
+     "kind": "method",
+     "name": "exported",
+     "qualname": "Module.exported",
+     "signature": "def exported(self) -> list[Symbol]",
+     "line": 95,
+     "start": 95,
+     "end": 100,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Top-level symbols a user of this module is meant to see."
+    },
+    {
+     "kind": "function",
+     "name": "module_name",
+     "qualname": "module_name",
+     "signature": "def module_name(path: str, package_dirs: set[str]) -> str",
+     "line": 103,
+     "start": 103,
+     "end": 116,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Dotted name for ``path``, walking up while the parent directory is a package."
+    },
+    {
+     "kind": "class",
+     "name": "Graph",
+     "qualname": "Graph",
+     "signature": "class Graph",
+     "line": 120,
+     "start": 119,
+     "end": 180,
+     "is_async": false,
+     "decorators": [
+      "dataclass"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "symbols",
+     "qualname": "Graph.symbols",
+     "signature": "def symbols(self) -> Iterator[tuple[Module, Symbol]]",
+     "line": 125,
+     "start": 125,
+     "end": 129,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "find_module",
+     "qualname": "Graph.find_module",
+     "signature": "def find_module(self, key: str) -> Module | None",
+     "line": 131,
+     "start": 131,
+     "end": 135,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Look a module up by path or dotted name."
+    },
+    {
+     "kind": "method",
+     "name": "link",
+     "qualname": "Graph.link",
+     "signature": "def link(self) -> None",
+     "line": 139,
+     "start": 139,
+     "end": 160,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Recompute module names, import targets and the imported_by view."
+    },
+    {
+     "kind": "method",
+     "name": "to_dict",
+     "qualname": "Graph.to_dict",
+     "signature": "def to_dict(self) -> dict[str, Any]",
+     "line": 164,
+     "start": 164,
+     "end": 168,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "from_dict",
+     "qualname": "Graph.from_dict",
+     "signature": "def from_dict(cls, data: dict[str, Any]) -> Graph",
+     "line": 171,
+     "start": 170,
+     "end": 180,
+     "is_async": false,
+     "decorators": [
+      "classmethod"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_absolute_target",
+     "qualname": "_absolute_target",
+     "signature": "def _absolute_target(module: Module, imp: Import) -> str",
+     "line": 183,
+     "start": 183,
+     "end": 192,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_resolve",
+     "qualname": "_resolve",
+     "signature": "def _resolve(imp: Import, by_name: dict[str, str]) -> list[str]",
+     "line": 195,
+     "start": 195,
+     "end": 213,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Paths of local modules loaded by an import statement."
+    }
+   ],
+   "imports": [
+    {
+     "line": 12,
+     "module": "collections.abc",
+     "level": 0,
+     "names": [
+      "Iterator"
+     ],
+     "target": "collections.abc",
+     "resolved": []
+    },
+    {
+     "line": 13,
+     "module": "dataclasses",
+     "level": 0,
+     "names": [
+      "asdict",
+      "dataclass",
+      "field"
+     ],
+     "target": "dataclasses",
+     "resolved": []
+    },
+    {
+     "line": 14,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "PurePosixPath"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 15,
+     "module": "typing",
+     "level": 0,
+     "names": [
+      "Any"
+     ],
+     "target": "typing",
+     "resolved": []
+    }
+   ],
+   "name": "ai_code_graph.model",
+   "imported_by": [
+    "src/ai_code_graph/cli.py",
+    "src/ai_code_graph/indexer.py",
+    "src/ai_code_graph/mcp_server.py",
+    "src/ai_code_graph/overview.py",
+    "src/ai_code_graph/parser.py",
+    "src/ai_code_graph/query.py",
+    "src/ai_code_graph/stats.py",
+    "tests/conftest.py",
+    "tests/test_graph.py",
+    "tests/test_mcp.py",
+    "tests/test_parser.py",
+    "tests/test_query.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/overview.py",
+   "sha256": "17a8bfdcd211287ea09948bae5b329923b2612679ace820db5ee6337f5f25d3b",
+   "doc": "Render ``overview.md``: a table of contents of the codebase, grouped by package.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "render_overview",
+     "qualname": "render_overview",
+     "signature": "def render_overview(graph: Graph, prefix: str | None = None) -> str",
+     "line": 17,
+     "start": 17,
+     "end": 42,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Markdown overview; ``prefix`` keeps only modules whose dotted name starts with it."
+    },
+    {
+     "kind": "function",
+     "name": "_module_section",
+     "qualname": "_module_section",
+     "signature": "def _module_section(graph: Graph, m: Module) -> list[str]",
+     "line": 45,
+     "start": 45,
+     "end": 73,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_entry",
+     "qualname": "_entry",
+     "signature": "def _entry(sym: Symbol) -> str",
+     "line": 76,
+     "start": 76,
+     "end": 78,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_in_namespace",
+     "qualname": "_in_namespace",
+     "signature": "def _in_namespace(name: str, prefix: str) -> bool",
+     "line": 81,
+     "start": 81,
+     "end": 82,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_clip",
+     "qualname": "_clip",
+     "signature": "def _clip(text: str) -> str",
+     "line": 85,
+     "start": 85,
+     "end": 86,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 9,
+     "module": "collections",
+     "level": 0,
+     "names": [
+      "defaultdict"
+     ],
+     "target": "collections",
+     "resolved": []
+    },
+    {
+     "line": 11,
+     "module": "",
+     "level": 1,
+     "names": [
+      "__version__"
+     ],
+     "target": "ai_code_graph",
+     "resolved": [
+      "src/ai_code_graph/__init__.py"
+     ]
+    },
+    {
+     "line": 12,
+     "module": "model",
+     "level": 1,
+     "names": [
+      "Graph",
+      "Module",
+      "Symbol"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    }
+   ],
+   "name": "ai_code_graph.overview",
+   "imported_by": [
+    "src/ai_code_graph/cli.py",
+    "src/ai_code_graph/indexer.py",
+    "src/ai_code_graph/mcp_server.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/parser.py",
+   "sha256": "552971579f8142810109236a5ae22146d45612c98675ebb89f4a3b26cd1dabd6",
+   "doc": "Turn one Python file into a ``Module`` using the standard-library ``ast``.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "sha256",
+     "qualname": "sha256",
+     "signature": "def sha256(data: bytes) -> str",
+     "line": 19,
+     "start": 19,
+     "end": 20,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "parse_module",
+     "qualname": "parse_module",
+     "signature": "def parse_module(path: str, data: bytes) -> Module",
+     "line": 23,
+     "start": 23,
+     "end": 37,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_collect_symbols",
+     "qualname": "_collect_symbols",
+     "signature": "def _collect_symbols(body: list[ast.stmt], prefix: str, in_class: bool) -> Iterator[Symbol]",
+     "line": 40,
+     "start": 40,
+     "end": 53,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Classes, functions and methods; recurses into class bodies but not function bodies."
+    },
+    {
+     "kind": "function",
+     "name": "_flatten",
+     "qualname": "_flatten",
+     "signature": "def _flatten(body: list[ast.stmt]) -> Iterator[ast.stmt]",
+     "line": 56,
+     "start": 56,
+     "end": 75,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Yield statements, looking inside module/class-level ``if``/``try``/``with`` blocks."
+    },
+    {
+     "kind": "function",
+     "name": "_symbol",
+     "qualname": "_symbol",
+     "signature": "def _symbol(node: ast.ClassDef | FunctionNode, kind: str, qualname: str, signature: str) -> Symbol",
+     "line": 78,
+     "start": 78,
+     "end": 92,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_function_signature",
+     "qualname": "_function_signature",
+     "signature": "def _function_signature(node: FunctionNode) -> str",
+     "line": 95,
+     "start": 95,
+     "end": 100,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_format_args",
+     "qualname": "_format_args",
+     "signature": "def _format_args(args: ast.arguments) -> str",
+     "line": 103,
+     "start": 103,
+     "end": 131,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Parameters in PEP 8 style (``x: int = 1``, ``x=1``), with ``/`` and ``*`` markers."
+    },
+    {
+     "kind": "function",
+     "name": "_class_signature",
+     "qualname": "_class_signature",
+     "signature": "def _class_signature(node: ast.ClassDef) -> str",
+     "line": 134,
+     "start": 134,
+     "end": 141,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_type_params",
+     "qualname": "_type_params",
+     "signature": "def _type_params(node: ast.AST) -> str",
+     "line": 144,
+     "start": 144,
+     "end": 147,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_first_doc_line",
+     "qualname": "_first_doc_line",
+     "signature": "def _first_doc_line(node: ast.Module | ast.ClassDef | FunctionNode) -> str | None",
+     "line": 150,
+     "start": 150,
+     "end": 154,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_literal_all",
+     "qualname": "_literal_all",
+     "signature": "def _literal_all(tree: ast.Module) -> list[str] | None",
+     "line": 157,
+     "start": 157,
+     "end": 172,
+     "is_async": false,
+     "decorators": [],
+     "doc": "``__all__`` when it is a plain list/tuple of string literals; otherwise None."
+    },
+    {
+     "kind": "function",
+     "name": "_collect_imports",
+     "qualname": "_collect_imports",
+     "signature": "def _collect_imports(tree: ast.Module) -> Iterator[Import]",
+     "line": 175,
+     "start": 175,
+     "end": 189,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Every import in the file, including lazy imports inside functions."
+    }
+   ],
+   "imports": [
+    {
+     "line": 10,
+     "module": "ast",
+     "level": 0,
+     "names": [],
+     "target": "ast",
+     "resolved": []
+    },
+    {
+     "line": 11,
+     "module": "hashlib",
+     "level": 0,
+     "names": [],
+     "target": "hashlib",
+     "resolved": []
+    },
+    {
+     "line": 12,
+     "module": "collections.abc",
+     "level": 0,
+     "names": [
+      "Iterator"
+     ],
+     "target": "collections.abc",
+     "resolved": []
+    },
+    {
+     "line": 14,
+     "module": "model",
+     "level": 1,
+     "names": [
+      "Import",
+      "Module",
+      "Symbol"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    }
+   ],
+   "name": "ai_code_graph.parser",
+   "imported_by": [
+    "src/ai_code_graph/indexer.py",
+    "src/ai_code_graph/query.py",
+    "tests/test_parser.py",
+    "tests/test_sync.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/query.py",
+   "sha256": "c16ecbd2ba452f18a7a918e8ff405399c8c6a35f553d0d5256b840fe229e61e1",
+   "doc": "Read-only queries over a graph: search, extract, imports and who-imports.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "class",
+     "name": "StaleGraph",
+     "qualname": "StaleGraph",
+     "signature": "class StaleGraph(RuntimeError)",
+     "line": 22,
+     "start": 22,
+     "end": 23,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "class",
+     "name": "Hit",
+     "qualname": "Hit",
+     "signature": "class Hit",
+     "line": 27,
+     "start": 26,
+     "end": 42,
+     "is_async": false,
+     "decorators": [
+      "dataclass(frozen=True, slots=True)"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "fullname",
+     "qualname": "Hit.fullname",
+     "signature": "def fullname(self) -> str",
+     "line": 34,
+     "start": 33,
+     "end": 35,
+     "is_async": false,
+     "decorators": [
+      "property"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "render",
+     "qualname": "Hit.render",
+     "signature": "def render(self) -> str",
+     "line": 37,
+     "start": 37,
+     "end": 42,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "search",
+     "qualname": "search",
+     "signature": "def search(graph: Graph, query: str, *, kind: str | None = None, path: str | None = None) -> list[Hit]",
+     "line": 45,
+     "start": 45,
+     "end": 74,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Symbols matching every whitespace-separated term, best first."
+    },
+    {
+     "kind": "function",
+     "name": "_fold_overloads",
+     "qualname": "_fold_overloads",
+     "signature": "def _fold_overloads(hits: list[Hit]) -> list[Hit]",
+     "line": 77,
+     "start": 77,
+     "end": 97,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Attach ``@overload`` stubs to the implementation with the same qualified name."
+    },
+    {
+     "kind": "function",
+     "name": "_is_overload",
+     "qualname": "_is_overload",
+     "signature": "def _is_overload(symbol: Symbol) -> bool",
+     "line": 100,
+     "start": 100,
+     "end": 101,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_score",
+     "qualname": "_score",
+     "signature": "def _score(module: Module, symbol: Symbol, terms: list[str]) -> int",
+     "line": 104,
+     "start": 104,
+     "end": 126,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_path_matches",
+     "qualname": "_path_matches",
+     "signature": "def _path_matches(path: str, pattern: str) -> bool",
+     "line": 129,
+     "start": 129,
+     "end": 132,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "format_hits",
+     "qualname": "format_hits",
+     "signature": "def format_hits(hits: list[Hit], limit: int) -> str",
+     "line": 135,
+     "start": 135,
+     "end": 141,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "find_symbol",
+     "qualname": "find_symbol",
+     "signature": "def find_symbol(graph: Graph, qualname: str) -> tuple[Module, Symbol]",
+     "line": 144,
+     "start": 144,
+     "end": 160,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Resolve a dotted name: full (``pkg.mod.Class.method``) or a unique suffix of one."
+    },
+    {
+     "kind": "function",
+     "name": "extract",
+     "qualname": "extract",
+     "signature": "def extract(graph: Graph, root: Path, qualname: str) -> tuple[Module, Symbol, str]",
+     "line": 163,
+     "start": 163,
+     "end": 175,
+     "is_async": false,
+     "decorators": [],
+     "doc": "The exact source of one symbol (decorators through the last line of its body)."
+    },
+    {
+     "kind": "function",
+     "name": "find_module",
+     "qualname": "find_module",
+     "signature": "def find_module(graph: Graph, key: str) -> Module",
+     "line": 178,
+     "start": 178,
+     "end": 184,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "imports_of",
+     "qualname": "imports_of",
+     "signature": "def imports_of(graph: Graph, key: str) -> str",
+     "line": 187,
+     "start": 187,
+     "end": 195,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "who_imports",
+     "qualname": "who_imports",
+     "signature": "def who_imports(graph: Graph, key: str) -> str",
+     "line": 198,
+     "start": 198,
+     "end": 207,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_imports_pointing_at",
+     "qualname": "_imports_pointing_at",
+     "signature": "def _imports_pointing_at(module: Module, target_path: str) -> list[Import]",
+     "line": 210,
+     "start": 210,
+     "end": 211,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 10,
+     "module": "io",
+     "level": 0,
+     "names": [],
+     "target": "io",
+     "resolved": []
+    },
+    {
+     "line": 11,
+     "module": "dataclasses",
+     "level": 0,
+     "names": [
+      "dataclass",
+      "replace"
+     ],
+     "target": "dataclasses",
+     "resolved": []
+    },
+    {
+     "line": 12,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 14,
+     "module": "config",
+     "level": 1,
+     "names": [
+      "matches_any"
+     ],
+     "target": "ai_code_graph.config",
+     "resolved": [
+      "src/ai_code_graph/config.py"
+     ]
+    },
+    {
+     "line": 15,
+     "module": "model",
+     "level": 1,
+     "names": [
+      "Graph",
+      "Import",
+      "Module",
+      "Symbol"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    },
+    {
+     "line": 16,
+     "module": "parser",
+     "level": 1,
+     "names": [
+      "sha256"
+     ],
+     "target": "ai_code_graph.parser",
+     "resolved": [
+      "src/ai_code_graph/parser.py"
+     ]
+    }
+   ],
+   "name": "ai_code_graph.query",
+   "imported_by": [
+    "src/ai_code_graph/cli.py",
+    "src/ai_code_graph/mcp_server.py",
+    "src/ai_code_graph/stats.py",
+    "tests/test_query.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/review.py",
+   "sha256": "7519c2ef345f0710afbdd5d0fd955886b65d54ce13dd839a7ac9904f9d473cad",
+   "doc": "Optional LLM review: send the code map (and optionally a git diff) to Claude.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "class",
+     "name": "ReviewError",
+     "qualname": "ReviewError",
+     "signature": "class ReviewError(RuntimeError)",
+     "line": 39,
+     "start": 39,
+     "end": 40,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "git_diff",
+     "qualname": "git_diff",
+     "signature": "def git_diff(root: Path, base: str | None) -> str",
+     "line": 43,
+     "start": 43,
+     "end": 50,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "build_prompt",
+     "qualname": "build_prompt",
+     "signature": "def build_prompt(overview: str, diff: str | None) -> str",
+     "line": 53,
+     "start": 53,
+     "end": 63,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "run_review",
+     "qualname": "run_review",
+     "signature": "def run_review(prompt: str, *, model: str | None = None, client: Any | None = None) -> str",
+     "line": 66,
+     "start": 66,
+     "end": 99,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Call Claude and return the review text. ``client`` is injectable for tests."
+    }
+   ],
+   "imports": [
+    {
+     "line": 9,
+     "module": "os",
+     "level": 0,
+     "names": [],
+     "target": "os",
+     "resolved": []
+    },
+    {
+     "line": 10,
+     "module": "subprocess",
+     "level": 0,
+     "names": [],
+     "target": "subprocess",
+     "resolved": []
+    },
+    {
+     "line": 11,
+     "module": "sys",
+     "level": 0,
+     "names": [],
+     "target": "sys",
+     "resolved": []
+    },
+    {
+     "line": 12,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 13,
+     "module": "typing",
+     "level": 0,
+     "names": [
+      "Any"
+     ],
+     "target": "typing",
+     "resolved": []
+    },
+    {
+     "line": 15,
+     "module": "anthropic",
+     "level": 0,
+     "names": [],
+     "target": "anthropic",
+     "resolved": []
+    }
+   ],
+   "name": "ai_code_graph.review",
+   "imported_by": [
+    "src/ai_code_graph/cli.py",
+    "tests/test_review.py"
+   ]
+  },
+  {
+   "path": "src/ai_code_graph/stats.py",
+   "sha256": "b9c6267ce0978e300ab3d2a151380ee861462bdc627661e1473280d5609ef772",
+   "doc": "Measure what compact search output saves, against two baselines.",
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "class",
+     "name": "Measurement",
+     "qualname": "Measurement",
+     "signature": "class Measurement",
+     "line": 25,
+     "start": 24,
+     "end": 31,
+     "is_async": false,
+     "decorators": [
+      "dataclass(frozen=True)"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "measure",
+     "qualname": "measure",
+     "signature": "def measure(graph: Graph, root: Path, queries: list[str], limit: int = 20) -> list[Measurement]",
+     "line": 34,
+     "start": 34,
+     "end": 53,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "_grep",
+     "qualname": "_grep",
+     "signature": "def _grep(texts: dict[str, str], query: str) -> str",
+     "line": 56,
+     "start": 56,
+     "end": 64,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Case-insensitive ``grep -rn`` for the query string."
+    },
+    {
+     "kind": "function",
+     "name": "render_table",
+     "qualname": "render_table",
+     "signature": "def render_table(rows: list[Measurement], title: str) -> str",
+     "line": 67,
+     "start": 67,
+     "end": 89,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 17,
+     "module": "dataclasses",
+     "level": 0,
+     "names": [
+      "dataclass"
+     ],
+     "target": "dataclasses",
+     "resolved": []
+    },
+    {
+     "line": 18,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 20,
+     "module": "model",
+     "level": 1,
+     "names": [
+      "Graph"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    },
+    {
+     "line": 21,
+     "module": "query",
+     "level": 1,
+     "names": [
+      "format_hits",
+      "search"
+     ],
+     "target": "ai_code_graph.query",
+     "resolved": [
+      "src/ai_code_graph/query.py"
+     ]
+    }
+   ],
+   "name": "ai_code_graph.stats",
+   "imported_by": [
+    "src/ai_code_graph/cli.py"
+   ]
+  },
+  {
+   "path": "tests/conftest.py",
+   "sha256": "495844f1a10ae91fded0055ad5fba9f15f455fd19a43b4a7596c8c4d67a9793f",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "project",
+     "qualname": "project",
+     "signature": "def project(tmp_path: Path) -> Path",
+     "line": 14,
+     "start": 13,
+     "end": 18,
+     "is_async": false,
+     "decorators": [
+      "pytest.fixture"
+     ],
+     "doc": "A fresh copy of the fixture package, so tests can edit files freely."
+    },
+    {
+     "kind": "function",
+     "name": "config",
+     "qualname": "config",
+     "signature": "def config(project: Path) -> Config",
+     "line": 22,
+     "start": 21,
+     "end": 23,
+     "is_async": false,
+     "decorators": [
+      "pytest.fixture"
+     ],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "graph",
+     "qualname": "graph",
+     "signature": "def graph(config: Config) -> Graph",
+     "line": 27,
+     "start": 26,
+     "end": 28,
+     "is_async": false,
+     "decorators": [
+      "pytest.fixture"
+     ],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 1,
+     "module": "shutil",
+     "level": 0,
+     "names": [],
+     "target": "shutil",
+     "resolved": []
+    },
+    {
+     "line": 2,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 4,
+     "module": "pytest",
+     "level": 0,
+     "names": [],
+     "target": "pytest",
+     "resolved": []
+    },
+    {
+     "line": 6,
+     "module": "ai_code_graph",
+     "level": 0,
+     "names": [
+      "indexer"
+     ],
+     "target": "ai_code_graph",
+     "resolved": [
+      "src/ai_code_graph/__init__.py",
+      "src/ai_code_graph/indexer.py"
+     ]
+    },
+    {
+     "line": 7,
+     "module": "ai_code_graph.config",
+     "level": 0,
+     "names": [
+      "Config"
+     ],
+     "target": "ai_code_graph.config",
+     "resolved": [
+      "src/ai_code_graph/config.py"
+     ]
+    },
+    {
+     "line": 8,
+     "module": "ai_code_graph.model",
+     "level": 0,
+     "names": [
+      "Graph"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    }
+   ],
+   "name": "conftest",
+   "imported_by": []
+  },
+  {
+   "path": "tests/test_cli.py",
+   "sha256": "9d53a4667505c0260d41c1b6bc74772664c099620b8aca7bf3ba37b698da186c",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "run",
+     "qualname": "run",
+     "signature": "def run(root: Path, *args: str) -> int",
+     "line": 8,
+     "start": 8,
+     "end": 9,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_create_sync_search_extract",
+     "qualname": "test_create_sync_search_extract",
+     "signature": "def test_create_sync_search_extract(project: Path, capsys: pytest.CaptureFixture[str]) -> None",
+     "line": 12,
+     "start": 12,
+     "end": 23,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_search_without_matches_exits_1",
+     "qualname": "test_search_without_matches_exits_1",
+     "signature": "def test_search_without_matches_exits_1(project: Path, capsys: pytest.CaptureFixture[str]) -> None",
+     "line": 26,
+     "start": 26,
+     "end": 30,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_overview_imports_who_imports",
+     "qualname": "test_overview_imports_who_imports",
+     "signature": "def test_overview_imports_who_imports(project: Path, capsys: pytest.CaptureFixture[str]) -> None",
+     "line": 33,
+     "start": 33,
+     "end": 41,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_errors_exit_2_with_a_message",
+     "qualname": "test_errors_exit_2_with_a_message",
+     "signature": "def test_errors_exit_2_with_a_message(project: Path, capsys: pytest.CaptureFixture[str]) -> None",
+     "line": 44,
+     "start": 44,
+     "end": 52,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_review_without_key_fails_cleanly",
+     "qualname": "test_review_without_key_fails_cleanly",
+     "signature": "def test_review_without_key_fails_cleanly(project: Path, capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch) -> None",
+     "line": 55,
+     "start": 55,
+     "end": 62,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_review_dry_run_and_mocked_call",
+     "qualname": "test_review_dry_run_and_mocked_call",
+     "signature": "def test_review_dry_run_and_mocked_call(project: Path, capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch) -> None",
+     "line": 65,
+     "start": 65,
+     "end": 77,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_stats_reports_real_sizes",
+     "qualname": "test_stats_reports_real_sizes",
+     "signature": "def test_stats_reports_real_sizes(project: Path, capsys: pytest.CaptureFixture[str]) -> None",
+     "line": 80,
+     "start": 80,
+     "end": 86,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 1,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 3,
+     "module": "pytest",
+     "level": 0,
+     "names": [],
+     "target": "pytest",
+     "resolved": []
+    },
+    {
+     "line": 5,
+     "module": "ai_code_graph",
+     "level": 0,
+     "names": [
+      "cli"
+     ],
+     "target": "ai_code_graph",
+     "resolved": [
+      "src/ai_code_graph/__init__.py",
+      "src/ai_code_graph/cli.py"
+     ]
+    }
+   ],
+   "name": "test_cli",
+   "imported_by": []
+  },
+  {
+   "path": "tests/test_graph.py",
+   "sha256": "f01e56936e9b63241ca9f151da79499b3b9f6b687e7d69acef4034913c6ea605",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "by_raw",
+     "qualname": "by_raw",
+     "signature": "def by_raw(module: Module) -> dict[str, Import]",
+     "line": 4,
+     "start": 4,
+     "end": 5,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_module_names_follow_package_dirs",
+     "qualname": "test_module_names_follow_package_dirs",
+     "signature": "def test_module_names_follow_package_dirs(graph: Graph) -> None",
+     "line": 8,
+     "start": 8,
+     "end": 15,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_src_layout_and_scripts",
+     "qualname": "test_src_layout_and_scripts",
+     "signature": "def test_src_layout_and_scripts() -> None",
+     "line": 18,
+     "start": 18,
+     "end": 22,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_import_resolution",
+     "qualname": "test_import_resolution",
+     "signature": "def test_import_resolution(graph: Graph) -> None",
+     "line": 25,
+     "start": 25,
+     "end": 35,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_relative_import_from_package_init",
+     "qualname": "test_relative_import_from_package_init",
+     "signature": "def test_relative_import_from_package_init(graph: Graph) -> None",
+     "line": 38,
+     "start": 38,
+     "end": 40,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_imported_by_is_the_reverse_view",
+     "qualname": "test_imported_by_is_the_reverse_view",
+     "signature": "def test_imported_by_is_the_reverse_view(graph: Graph) -> None",
+     "line": 43,
+     "start": 43,
+     "end": 48,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_relative_import_above_top_level_is_unresolved",
+     "qualname": "test_relative_import_above_top_level_is_unresolved",
+     "signature": "def test_relative_import_above_top_level_is_unresolved() -> None",
+     "line": 51,
+     "start": 51,
+     "end": 54,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_round_trip_through_json_dict",
+     "qualname": "test_round_trip_through_json_dict",
+     "signature": "def test_round_trip_through_json_dict(graph: Graph) -> None",
+     "line": 57,
+     "start": 57,
+     "end": 59,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 1,
+     "module": "ai_code_graph.model",
+     "level": 0,
+     "names": [
+      "Graph",
+      "Import",
+      "Module",
+      "module_name"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    }
+   ],
+   "name": "test_graph",
+   "imported_by": []
+  },
+  {
+   "path": "tests/test_mcp.py",
+   "sha256": "18dd437f5d07791e2c30934c8172d6420481b748fe1b34684b613a5b5d8ac56f",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "call",
+     "qualname": "call",
+     "signature": "def call(root: Path, tool: str, args: dict[str, object]) -> tuple[bool, str]",
+     "line": 15,
+     "start": 15,
+     "end": 21,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_tools_are_registered_and_read_only",
+     "qualname": "test_tools_are_registered_and_read_only",
+     "signature": "def test_tools_are_registered_and_read_only(project: Path) -> None",
+     "line": 24,
+     "start": 24,
+     "end": 33,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_search_tool_returns_compact_lines",
+     "qualname": "test_search_tool_returns_compact_lines",
+     "signature": "def test_search_tool_returns_compact_lines(graph: Graph, config: Config) -> None",
+     "line": 36,
+     "start": 36,
+     "end": 42,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_extract_overview_and_who_imports_tools",
+     "qualname": "test_extract_overview_and_who_imports_tools",
+     "signature": "def test_extract_overview_and_who_imports_tools(graph: Graph, config: Config) -> None",
+     "line": 45,
+     "start": 45,
+     "end": 51,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_tool_errors_are_reported_not_raised",
+     "qualname": "test_tool_errors_are_reported_not_raised",
+     "signature": "def test_tool_errors_are_reported_not_raised(project: Path) -> None",
+     "line": 54,
+     "start": 54,
+     "end": 56,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_stdio_server_end_to_end",
+     "qualname": "test_stdio_server_end_to_end",
+     "signature": "def test_stdio_server_end_to_end(graph: Graph, config: Config) -> None",
+     "line": 59,
+     "start": 59,
+     "end": 74,
+     "is_async": false,
+     "decorators": [],
+     "doc": "Start `ai-code-graph mcp` as a subprocess and talk to it over stdio."
+    }
+   ],
+   "imports": [
+    {
+     "line": 1,
+     "module": "asyncio",
+     "level": 0,
+     "names": [],
+     "target": "asyncio",
+     "resolved": []
+    },
+    {
+     "line": 2,
+     "module": "sys",
+     "level": 0,
+     "names": [],
+     "target": "sys",
+     "resolved": []
+    },
+    {
+     "line": 3,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 5,
+     "module": "mcp",
+     "level": 0,
+     "names": [
+      "Client"
+     ],
+     "target": "mcp",
+     "resolved": []
+    },
+    {
+     "line": 6,
+     "module": "mcp.client.stdio",
+     "level": 0,
+     "names": [
+      "StdioServerParameters"
+     ],
+     "target": "mcp.client.stdio",
+     "resolved": []
+    },
+    {
+     "line": 8,
+     "module": "ai_code_graph.config",
+     "level": 0,
+     "names": [
+      "Config"
+     ],
+     "target": "ai_code_graph.config",
+     "resolved": [
+      "src/ai_code_graph/config.py"
+     ]
+    },
+    {
+     "line": 9,
+     "module": "ai_code_graph.mcp_server",
+     "level": 0,
+     "names": [
+      "build_server"
+     ],
+     "target": "ai_code_graph.mcp_server",
+     "resolved": [
+      "src/ai_code_graph/mcp_server.py"
+     ]
+    },
+    {
+     "line": 10,
+     "module": "ai_code_graph.model",
+     "level": 0,
+     "names": [
+      "Graph"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    }
+   ],
+   "name": "test_mcp",
+   "imported_by": []
+  },
+  {
+   "path": "tests/test_parser.py",
+   "sha256": "960b00d55a36b2e63fc3d329337a244c903aa50b85fe23b8e32a78b67b40e1c1",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "symbols",
+     "qualname": "symbols",
+     "signature": "def symbols(path: str) -> dict[str, Symbol]",
+     "line": 9,
+     "start": 9,
+     "end": 11,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_function_signatures_keep_defaults_annotations_and_markers",
+     "qualname": "test_function_signatures_keep_defaults_annotations_and_markers",
+     "signature": "def test_function_signatures_keep_defaults_annotations_and_markers() -> None",
+     "line": 14,
+     "start": 14,
+     "end": 24,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_classes_methods_and_decorators",
+     "qualname": "test_classes_methods_and_decorators",
+     "signature": "def test_classes_methods_and_decorators() -> None",
+     "line": 27,
+     "start": 27,
+     "end": 42,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_nested_functions_are_not_indexed",
+     "qualname": "test_nested_functions_are_not_indexed",
+     "signature": "def test_nested_functions_are_not_indexed() -> None",
+     "line": 45,
+     "start": 45,
+     "end": 47,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_module_docstring_and_literal_all",
+     "qualname": "test_module_docstring_and_literal_all",
+     "signature": "def test_module_docstring_and_literal_all() -> None",
+     "line": 50,
+     "start": 50,
+     "end": 55,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_exported_without_all_uses_underscore_convention",
+     "qualname": "test_exported_without_all_uses_underscore_convention",
+     "signature": "def test_exported_without_all_uses_underscore_convention() -> None",
+     "line": 58,
+     "start": 58,
+     "end": 60,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_imports_are_recorded_raw_and_future_is_skipped",
+     "qualname": "test_imports_are_recorded_raw_and_future_is_skipped",
+     "signature": "def test_imports_are_recorded_raw_and_future_is_skipped() -> None",
+     "line": 63,
+     "start": 63,
+     "end": 72,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_lazy_imports_inside_functions_are_found",
+     "qualname": "test_lazy_imports_inside_functions_are_found",
+     "signature": "def test_lazy_imports_inside_functions_are_found() -> None",
+     "line": 75,
+     "start": 75,
+     "end": 77,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_definitions_under_if_and_try_are_indexed",
+     "qualname": "test_definitions_under_if_and_try_are_indexed",
+     "signature": "def test_definitions_under_if_and_try_are_indexed() -> None",
+     "line": 80,
+     "start": 80,
+     "end": 93,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_class_signature_with_bases_and_keywords",
+     "qualname": "test_class_signature_with_bases_and_keywords",
+     "signature": "def test_class_signature_with_bases_and_keywords() -> None",
+     "line": 96,
+     "start": 96,
+     "end": 100,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_syntax_error_is_recorded_not_raised",
+     "qualname": "test_syntax_error_is_recorded_not_raised",
+     "signature": "def test_syntax_error_is_recorded_not_raised() -> None",
+     "line": 103,
+     "start": 103,
+     "end": 109,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 1,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 3,
+     "module": "ai_code_graph.model",
+     "level": 0,
+     "names": [
+      "Symbol"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    },
+    {
+     "line": 4,
+     "module": "ai_code_graph.parser",
+     "level": 0,
+     "names": [
+      "parse_module"
+     ],
+     "target": "ai_code_graph.parser",
+     "resolved": [
+      "src/ai_code_graph/parser.py"
+     ]
+    }
+   ],
+   "name": "test_parser",
+   "imported_by": []
+  },
+  {
+   "path": "tests/test_query.py",
+   "sha256": "3cff0a4e0059c05533033403276f6ee40710452b6d0f4aabff0478e2ac7729ad",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "top",
+     "qualname": "top",
+     "signature": "def top(graph: Graph, text: str, **filters: str) -> list[str]",
+     "line": 10,
+     "start": 10,
+     "end": 11,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_exact_name_ranks_first",
+     "qualname": "test_exact_name_ranks_first",
+     "signature": "def test_exact_name_ranks_first(graph: Graph) -> None",
+     "line": 14,
+     "start": 14,
+     "end": 16,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_ranking_order_is_explainable",
+     "qualname": "test_ranking_order_is_explainable",
+     "signature": "def test_ranking_order_is_explainable(graph: Graph) -> None",
+     "line": 19,
+     "start": 19,
+     "end": 25,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_all_terms_must_match",
+     "qualname": "test_all_terms_must_match",
+     "signature": "def test_all_terms_must_match(graph: Graph) -> None",
+     "line": 28,
+     "start": 28,
+     "end": 30,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_dotted_query_matches_qualified_name",
+     "qualname": "test_dotted_query_matches_qualified_name",
+     "signature": "def test_dotted_query_matches_qualified_name(graph: Graph) -> None",
+     "line": 33,
+     "start": 33,
+     "end": 34,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_signature_and_docstring_terms",
+     "qualname": "test_signature_and_docstring_terms",
+     "signature": "def test_signature_and_docstring_terms(graph: Graph) -> None",
+     "line": 37,
+     "start": 37,
+     "end": 39,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_kind_and_path_filters",
+     "qualname": "test_kind_and_path_filters",
+     "signature": "def test_kind_and_path_filters(graph: Graph) -> None",
+     "line": 42,
+     "start": 42,
+     "end": 57,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_public_symbols_outrank_private_ones",
+     "qualname": "test_public_symbols_outrank_private_ones",
+     "signature": "def test_public_symbols_outrank_private_ones(graph: Graph) -> None",
+     "line": 60,
+     "start": 60,
+     "end": 63,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_compact_line_format_and_limit",
+     "qualname": "test_compact_line_format_and_limit",
+     "signature": "def test_compact_line_format_and_limit(graph: Graph) -> None",
+     "line": 66,
+     "start": 66,
+     "end": 73,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_extract_returns_exact_source",
+     "qualname": "test_extract_returns_exact_source",
+     "signature": "def test_extract_returns_exact_source(graph: Graph, config: Config) -> None",
+     "line": 76,
+     "start": 76,
+     "end": 86,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_extract_is_byte_exact_with_crlf_line_endings",
+     "qualname": "test_extract_is_byte_exact_with_crlf_line_endings",
+     "signature": "def test_extract_is_byte_exact_with_crlf_line_endings(project: Path, config: Config) -> None",
+     "line": 89,
+     "start": 89,
+     "end": 93,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_extract_unknown_and_ambiguous",
+     "qualname": "test_extract_unknown_and_ambiguous",
+     "signature": "def test_extract_unknown_and_ambiguous(project: Path, config: Config) -> None",
+     "line": 96,
+     "start": 96,
+     "end": 106,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_extract_refuses_stale_files",
+     "qualname": "test_extract_refuses_stale_files",
+     "signature": "def test_extract_refuses_stale_files(project: Path, graph: Graph, config: Config) -> None",
+     "line": 109,
+     "start": 109,
+     "end": 113,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_imports_and_who_imports",
+     "qualname": "test_imports_and_who_imports",
+     "signature": "def test_imports_and_who_imports(graph: Graph) -> None",
+     "line": 116,
+     "start": 116,
+     "end": 128,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_overloads_fold_and_long_signatures_clip",
+     "qualname": "test_overloads_fold_and_long_signatures_clip",
+     "signature": "def test_overloads_fold_and_long_signatures_clip(project: Path, config: Config) -> None",
+     "line": 131,
+     "start": 131,
+     "end": 148,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 1,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 3,
+     "module": "pytest",
+     "level": 0,
+     "names": [],
+     "target": "pytest",
+     "resolved": []
+    },
+    {
+     "line": 5,
+     "module": "ai_code_graph",
+     "level": 0,
+     "names": [
+      "indexer",
+      "query"
+     ],
+     "target": "ai_code_graph",
+     "resolved": [
+      "src/ai_code_graph/__init__.py",
+      "src/ai_code_graph/indexer.py",
+      "src/ai_code_graph/query.py"
+     ]
+    },
+    {
+     "line": 6,
+     "module": "ai_code_graph.config",
+     "level": 0,
+     "names": [
+      "Config"
+     ],
+     "target": "ai_code_graph.config",
+     "resolved": [
+      "src/ai_code_graph/config.py"
+     ]
+    },
+    {
+     "line": 7,
+     "module": "ai_code_graph.model",
+     "level": 0,
+     "names": [
+      "Graph"
+     ],
+     "target": "ai_code_graph.model",
+     "resolved": [
+      "src/ai_code_graph/model.py"
+     ]
+    }
+   ],
+   "name": "test_query",
+   "imported_by": []
+  },
+  {
+   "path": "tests/test_review.py",
+   "sha256": "a8eeeac14b20fcfc9789509c712720d0e2f33a7f2d708dde40d19b10b89e086c",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "class",
+     "name": "FakeMessages",
+     "qualname": "FakeMessages",
+     "signature": "class FakeMessages",
+     "line": 9,
+     "start": 9,
+     "end": 18,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "__init__",
+     "qualname": "FakeMessages.__init__",
+     "signature": "def __init__(self, stop_reason: str = 'end_turn', text: str = '## Architecture\\nFine.') -> None",
+     "line": 10,
+     "start": 10,
+     "end": 14,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "method",
+     "name": "create",
+     "qualname": "FakeMessages.create",
+     "signature": "def create(self, **kwargs: Any) -> SimpleNamespace",
+     "line": 16,
+     "start": 16,
+     "end": 18,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "fake_client",
+     "qualname": "fake_client",
+     "signature": "def fake_client(**kwargs: Any) -> SimpleNamespace",
+     "line": 21,
+     "start": 21,
+     "end": 22,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_review_sends_prompt_and_returns_text",
+     "qualname": "test_review_sends_prompt_and_returns_text",
+     "signature": "def test_review_sends_prompt_and_returns_text(monkeypatch: pytest.MonkeyPatch) -> None",
+     "line": 25,
+     "start": 25,
+     "end": 34,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_model_comes_from_env",
+     "qualname": "test_model_comes_from_env",
+     "signature": "def test_model_comes_from_env(monkeypatch: pytest.MonkeyPatch) -> None",
+     "line": 37,
+     "start": 37,
+     "end": 41,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_missing_api_key_is_a_clear_error",
+     "qualname": "test_missing_api_key_is_a_clear_error",
+     "signature": "def test_missing_api_key_is_a_clear_error(monkeypatch: pytest.MonkeyPatch) -> None",
+     "line": 44,
+     "start": 44,
+     "end": 47,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_refusal_is_an_error",
+     "qualname": "test_refusal_is_an_error",
+     "signature": "def test_refusal_is_an_error() -> None",
+     "line": 50,
+     "start": 50,
+     "end": 52,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_prompt_includes_diff_and_rejects_oversized_input",
+     "qualname": "test_prompt_includes_diff_and_rejects_oversized_input",
+     "signature": "def test_prompt_includes_diff_and_rejects_oversized_input() -> None",
+     "line": 55,
+     "start": 55,
+     "end": 60,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 1,
+     "module": "types",
+     "level": 0,
+     "names": [
+      "SimpleNamespace"
+     ],
+     "target": "types",
+     "resolved": []
+    },
+    {
+     "line": 2,
+     "module": "typing",
+     "level": 0,
+     "names": [
+      "Any"
+     ],
+     "target": "typing",
+     "resolved": []
+    },
+    {
+     "line": 4,
+     "module": "pytest",
+     "level": 0,
+     "names": [],
+     "target": "pytest",
+     "resolved": []
+    },
+    {
+     "line": 6,
+     "module": "ai_code_graph.review",
+     "level": 0,
+     "names": [
+      "DEFAULT_MODEL",
+      "ReviewError",
+      "build_prompt",
+      "run_review"
+     ],
+     "target": "ai_code_graph.review",
+     "resolved": [
+      "src/ai_code_graph/review.py"
+     ]
+    }
+   ],
+   "name": "test_review",
+   "imported_by": []
+  },
+  {
+   "path": "tests/test_sync.py",
+   "sha256": "e601cbf46d123bda2449ca23790b6ded7f19802d5a293aeba1dfcaf2a9690426",
+   "doc": null,
+   "all": null,
+   "error": null,
+   "symbols": [
+    {
+     "kind": "function",
+     "name": "parse_calls",
+     "qualname": "parse_calls",
+     "signature": "def parse_calls(monkeypatch: pytest.MonkeyPatch) -> list[str]",
+     "line": 10,
+     "start": 9,
+     "end": 19,
+     "is_async": false,
+     "decorators": [
+      "pytest.fixture"
+     ],
+     "doc": "Record which files get (re)parsed."
+    },
+    {
+     "kind": "function",
+     "name": "test_create_writes_the_three_outputs",
+     "qualname": "test_create_writes_the_three_outputs",
+     "signature": "def test_create_writes_the_three_outputs(config: Config) -> None",
+     "line": 22,
+     "start": 22,
+     "end": 30,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_sync_without_changes_parses_nothing",
+     "qualname": "test_sync_without_changes_parses_nothing",
+     "signature": "def test_sync_without_changes_parses_nothing(config: Config, parse_calls: list[str]) -> None",
+     "line": 33,
+     "start": 33,
+     "end": 40,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_sync_add_change_delete",
+     "qualname": "test_sync_add_change_delete",
+     "signature": "def test_sync_add_change_delete(project: Path, config: Config, parse_calls: list[str]) -> None",
+     "line": 43,
+     "start": 43,
+     "end": 66,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_new_module_resolves_imports_in_unchanged_files",
+     "qualname": "test_new_module_resolves_imports_in_unchanged_files",
+     "signature": "def test_new_module_resolves_imports_in_unchanged_files(project: Path, config: Config, parse_calls: list[str]) -> None",
+     "line": 69,
+     "start": 69,
+     "end": 81,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_tool_version_change_forces_full_rebuild",
+     "qualname": "test_tool_version_change_forces_full_rebuild",
+     "signature": "def test_tool_version_change_forces_full_rebuild(config: Config, parse_calls: list[str], monkeypatch: pytest.MonkeyPatch) -> None",
+     "line": 84,
+     "start": 84,
+     "end": 91,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_syntax_error_is_tolerated_and_recovers",
+     "qualname": "test_syntax_error_is_tolerated_and_recovers",
+     "signature": "def test_syntax_error_is_tolerated_and_recovers(project: Path, config: Config) -> None",
+     "line": 94,
+     "start": 94,
+     "end": 105,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_discovery_skips_venvs_caches_and_output",
+     "qualname": "test_discovery_skips_venvs_caches_and_output",
+     "signature": "def test_discovery_skips_venvs_caches_and_output(project: Path, config: Config) -> None",
+     "line": 108,
+     "start": 108,
+     "end": 119,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    },
+    {
+     "kind": "function",
+     "name": "test_config_include_exclude_and_output",
+     "qualname": "test_config_include_exclude_and_output",
+     "signature": "def test_config_include_exclude_and_output(project: Path) -> None",
+     "line": 122,
+     "start": 122,
+     "end": 129,
+     "is_async": false,
+     "decorators": [],
+     "doc": null
+    }
+   ],
+   "imports": [
+    {
+     "line": 1,
+     "module": "pathlib",
+     "level": 0,
+     "names": [
+      "Path"
+     ],
+     "target": "pathlib",
+     "resolved": []
+    },
+    {
+     "line": 3,
+     "module": "pytest",
+     "level": 0,
+     "names": [],
+     "target": "pytest",
+     "resolved": []
+    },
+    {
+     "line": 5,
+     "module": "ai_code_graph",
+     "level": 0,
+     "names": [
+      "indexer",
+      "parser"
+     ],
+     "target": "ai_code_graph",
+     "resolved": [
+      "src/ai_code_graph/__init__.py",
+      "src/ai_code_graph/indexer.py",
+      "src/ai_code_graph/parser.py"
+     ]
+    },
+    {
+     "line": 6,
+     "module": "ai_code_graph.config",
+     "level": 0,
+     "names": [
+      "Config"
+     ],
+     "target": "ai_code_graph.config",
+     "resolved": [
+      "src/ai_code_graph/config.py"
+     ]
+    }
+   ],
+   "name": "test_sync",
+   "imported_by": []
+  }
+ ]
+}

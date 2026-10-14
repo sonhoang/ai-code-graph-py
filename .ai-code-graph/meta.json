@@ -1,0 +1,27 @@
+{
+ "tool": "ai-code-graph-py",
+ "tool_version": "0.1.0",
+ "generated_at": "2026-10-14T08:30:26+00:00",
+ "files": {
+  "src/ai_code_graph/__init__.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+  "src/ai_code_graph/__main__.py": "13a1a5b340cdcfc1902b62be90e508c7c71886000d5bf087e7854aadf09fb35e",
+  "src/ai_code_graph/cli.py": "3edd522ffd63b1fd6755f6acac033935700b7d808226f5a4375555c4e615e2c1",
+  "src/ai_code_graph/config.py": "dc3a788508c2085f90948ea3255bab21f5c1acd209dd9eee9051c60f91bd752e",
+  "src/ai_code_graph/indexer.py": "b250da4840c4b7638fc8000d54f9d19f94d2183d92ceb8115dcd748e0f9d044d",
+  "src/ai_code_graph/mcp_server.py": "ae121a6a4984162e21064bd6fca6d57c7630406a7c35a81ac2fc40366bbd0d25",
+  "src/ai_code_graph/model.py": "a5a72436e24f0f69bc2bd7cd3d121c704b36aba8bd5bab4b31d8b35cb5dc4a2f",
+  "src/ai_code_graph/overview.py": "17a8bfdcd211287ea09948bae5b329923b2612679ace820db5ee6337f5f25d3b",
+  "src/ai_code_graph/parser.py": "552971579f8142810109236a5ae22146d45612c98675ebb89f4a3b26cd1dabd6",
+  "src/ai_code_graph/query.py": "c16ecbd2ba452f18a7a918e8ff405399c8c6a35f553d0d5256b840fe229e61e1",
+  "src/ai_code_graph/review.py": "7519c2ef345f0710afbdd5d0fd955886b65d54ce13dd839a7ac9904f9d473cad",
+  "src/ai_code_graph/stats.py": "b9c6267ce0978e300ab3d2a151380ee861462bdc627661e1473280d5609ef772",
+  "tests/conftest.py": "495844f1a10ae91fded0055ad5fba9f15f455fd19a43b4a7596c8c4d67a9793f",
+  "tests/test_cli.py": "9d53a4667505c0260d41c1b6bc74772664c099620b8aca7bf3ba37b698da186c",
+  "tests/test_graph.py": "f01e56936e9b63241ca9f151da79499b3b9f6b687e7d69acef4034913c6ea605",
+  "tests/test_mcp.py": "18dd437f5d07791e2c30934c8172d6420481b748fe1b34684b613a5b5d8ac56f",
+  "tests/test_parser.py": "960b00d55a36b2e63fc3d329337a244c903aa50b85fe23b8e32a78b67b40e1c1",
+  "tests/test_query.py": "3cff0a4e0059c05533033403276f6ee40710452b6d0f4aabff0478e2ac7729ad",
+  "tests/test_review.py": "a8eeeac14b20fcfc9789509c712720d0e2f33a7f2d708dde40d19b10b89e086c",
+  "tests/test_sync.py": "e601cbf46d123bda2449ca23790b6ded7f19802d5a293aeba1dfcaf2a9690426"
+ }
+}
